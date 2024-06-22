@@ -1,0 +1,59 @@
+.user-table-container {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    text-align: center;
+    justify-content: center;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.user-table-container img.wrong-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+}
+
+.user-table-container img.user-icon {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    border: 5px solid #e1d2ce;
+}
+
+.user-table-container h2 {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 2em;
+    color: #333;
+}
+
+.user-table-container .mobile-number {
+    position: relative;
+    font-size: 1.2em;
+    color: #555;
+    margin: 20px 0;
+    padding: 10px;
+}
+
+.user-table-container .mobile-number:before,
+.user-table-container .mobile-number:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #e1d2ce;
+    position: absolute;
+}
+
+.user-table-container .mobile-number:before {
+    top: 0;
+}
+
+.user-table-container .mobile-number:after {
+    bottom: 0;
+}
