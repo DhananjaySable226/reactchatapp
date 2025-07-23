@@ -9,6 +9,8 @@ import AddUser from './component/AddUser';
 import CreateUser from './component/CreateUser';
 import Edit from './component/Edit';
 import Search from './component/Search';
+import Navbar from './component/Navbar';
+import { useLocation } from 'react-router-dom';
 
 function App() {
   const localstorageData = localStorage.getItem("user");
@@ -16,13 +18,16 @@ function App() {
   //   const deleteUserData = localStorage.removeItem("user")
   //   return deleteUserData
   // }
+  const location = window.location;
+  // Only show Navbar if not on login page
+  const showNavbar = !(location.pathname === '/');
 
   return (
-    <div>
+    <div style={{ marginTop: location.pathname === '/UserScreen' ? 56 : 0 }}>
       <Router>
         <Routes>
           <Route path="/" element={localstorageData ? <Navigate to="/UserScreen" /> : <Login />} />
-          <Route path="/UserScreen" element={<UsersScreen />} />
+          <Route path="/UserScreen" element={<><Navbar /><UsersScreen /></>} />
           <Route path="/UserTable" element={<UserTable />} />
           <Route path="/ChatScreen/:mobile" element={<ChatScreen />} />
           <Route path="/AddUser" element={<AddUser />} />

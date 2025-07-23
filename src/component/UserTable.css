@@ -57,3 +57,39 @@
 .user-table-container .mobile-number:after {
     bottom: 0;
 }
+
+:root {
+    --primary: #4f8cff;
+    --background: #f4f6fb;
+    --card: #fff;
+    --text: #222;
+    --border-radius: 12px;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--background);
+    color: var(--text);
+}
+
+.modern-card {
+    background: var(--card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 24px;
+}
+
+.modern-btn {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.modern-btn:hover {
+    background: #2563eb;
+}

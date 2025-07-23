@@ -55,38 +55,33 @@ function UsersScreen() {
   };
 
   return (
-    <div className="chat-screen">
-      <div>
-        <div className="eirdt-block">
-          <span className="chat">Chats</span>
-          {usersChat ? (
-            <span className="zero">{usersChat}</span>
-          ) : null}
-          <div className="icons">
-            <img onClick={SearchScreen} src={Find} alt="search logo" />
-            <img onClick={UserTable} src={User} alt="user logo" />
-          </div>
+    <div className="users-main-container">
+      <p className="pinned">pinned</p>
+      {users.length === 0 ? (
+        <div className="no-users modern-card">
+          <img src={User} alt="no user" className="no-user-icon" />
+          <p className="no-user-text">No users added yet</p>
         </div>
-      </div>
-      <p className="pinned">Pinned</p>
-      {users.map((user, index) => (
-        <div key={index} className="chat-item">
-          <div>
-            <img src={User} alt="user logo" />
+      ) : (
+        users.map((user, index) => (
+          <div key={index} className="chat-item modern-card">
+            <div>
+              <img src={User} alt="user logo" />
+            </div>
+            <div onClick={() => handleChatClick(user.mobile)} className="chat-content" >
+              <h3>{user.name ? user.name : user.mobile}</h3>
+            </div>
+            <div className="time-info">
+              {user.statusFalseCount ? (
+                <p className="p">{user.statusFalseCount}</p>
+              ) : null}
+            </div>
           </div>
-          <div onClick={() => handleChatClick(user.mobile)} className="chat-content" >
-            <h3>{user.name}</h3>
-            <p>{user.mobile}</p>
-          </div>
-          <div className="time-info">
-            {user.statusFalseCount ? (
-              <p className="p">{user.statusFalseCount}</p>
-            ) : null}
-            <p>{user.time}</p>
-          </div>
-        </div>
-      ))}
-      <img className="add-user-logo" onClick={AddUser} src={AddUsers} alt="logo" />
+        ))
+      )}
+      <button className="add-user-fab" onClick={AddUser} title="Add User">
+        <img src={AddUsers} alt="add user" />
+      </button>
     </div>
   );
 }

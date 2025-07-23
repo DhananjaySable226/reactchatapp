@@ -5,6 +5,11 @@
     padding: 20px;
     width: 100%;
     box-sizing: border-box;
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: #f4f6fb;
 }
 
 .title {
@@ -53,4 +58,104 @@
     font-size: 1.2em;
     margin: 0;
     margin-left: 10px;
+}
+
+.adduser-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, #4f8cff 60%, #6ec6ff 100%);
+    color: #fff;
+    padding: 18px 20px;
+    border-radius: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    width: 100%;
+    margin: 0;
+}
+
+.adduser-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.adduser-add-btn {
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(79, 140, 255, 0.10);
+    transition: background 0.2s;
+    padding: 0;
+}
+
+.adduser-add-btn:hover {
+    background: #e3f0ff;
+}
+
+.add-user-list {
+    background: #fff;
+    border-radius: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    padding: 24px 12px;
+    min-height: 200px;
+    width: 100%;
+    margin: 0;
+}
+
+.no-users-found {
+    text-align: center;
+    color: #888;
+    margin-top: 32px;
+    font-size: 1.1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 600px) {
+    .adduser-header {
+        padding: 12px 8px;
+        border-radius: 12px 12px 0 0;
+    }
+
+    .adduser-title {
+        font-size: 1.05em;
+    }
+
+    .adduser-add-btn {
+        width: 32px;
+        height: 32px;
+    }
+
+    .add-user-list {
+        padding: 14px 2px;
+        border-radius: 0 0 12px 12px;
+    }
+
+    .no-users-found {
+        font-size: 1em;
+        margin-top: 18px;
+    }
+
+    .add-user {
+        width: 100vw;
+        min-height: 100vh;
+        padding: 0;
+    }
+
+    .adduser-header,
+    .add-user-list {
+        border-radius: 0;
+        width: 100%;
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
 }

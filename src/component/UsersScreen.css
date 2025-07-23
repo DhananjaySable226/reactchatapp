@@ -6,22 +6,6 @@
     padding-top: 60px;
 }
 
-.eirdt-block {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-}
-
 .chat {
     font-size: 1.5em;
     font-weight: bold;
@@ -49,19 +33,23 @@
 
 .pinned {
     font-weight: bold;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 18px;
     color: #555;
+    font-size: 1.1em;
 }
 
 .chat-item {
     display: flex;
     align-items: center;
+    flex-direction: row;
+    /* Always row, even on mobile */
     background-color: white;
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
+    margin-bottom: 16px;
+    transition: box-shadow 0.2s;
 }
 
 .chat-item img {
@@ -112,4 +100,166 @@
     border-radius: 50%;
     margin: 0;
     font-size: 1em;
+}
+
+/* Responsive design for chat screen */
+@media (max-width: 600px) {
+    .chat-screen {
+        padding-top: 70px;
+    }
+
+    .chat-item {
+        flex-direction: row;
+        /* Force row on mobile */
+        align-items: center;
+        padding: 10px 6px;
+    }
+
+    .add-user-logo {
+        width: 48px;
+        height: 48px;
+        bottom: 16px;
+        right: 16px;
+    }
+}
+
+.no-users {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto;
+    padding: 32px 16px;
+    max-width: 350px;
+    min-height: 200px;
+    background: var(--card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.no-user-icon {
+    width: 64px;
+    height: 64px;
+    opacity: 0.5;
+    margin-bottom: 16px;
+}
+
+.no-user-text {
+    color: #888;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+/* Modern card and button tweaks for better appearance */
+.modern-card {
+    margin-bottom: 16px;
+    transition: box-shadow 0.2s;
+}
+
+.modern-card:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.modern-btn {
+    box-shadow: 0 2px 8px rgba(79, 140, 255, 0.12);
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: box-shadow 0.2s, background 0.2s;
+}
+
+.modern-btn:hover {
+    background: #2563eb;
+    box-shadow: 0 4px 16px rgba(79, 140, 255, 0.18);
+}
+
+/* Improve chat-item spacing for all screens */
+.chat-item {
+    margin-bottom: 16px;
+    transition: box-shadow 0.2s;
+}
+
+/* Make sure .eirdt-block is always visually separated */
+.eirdt-block {
+    margin-bottom: 24px;
+}
+
+.users-main-container {
+    padding-top: 56px;
+    /* Match navbar height */
+    padding-left: 8px;
+    padding-right: 8px;
+    min-height: 100vh;
+    background: #f4f6fb;
+    box-sizing: border-box;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
+}
+
+.users-main-container::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}
+
+.add-user-fab {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    background: var(--primary, #4f8cff);
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 16px rgba(79, 140, 255, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1200;
+    transition: background 0.2s, box-shadow 0.2s;
+    padding: 0;
+}
+
+.add-user-fab:hover {
+    background: #2563eb;
+    box-shadow: 0 6px 24px rgba(79, 140, 255, 0.22);
+}
+
+.add-user-fab img {
+    width: 32px;
+    height: 32px;
+}
+
+@media (max-width: 600px) {
+    .users-main-container {
+        padding-top: 48px;
+        /* Match mobile navbar height */
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    .add-user-fab {
+        width: 44px;
+        height: 44px;
+        bottom: 12px;
+        right: 12px;
+    }
+
+    .add-user-fab img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+body {
+    overflow-x: hidden;
 }
