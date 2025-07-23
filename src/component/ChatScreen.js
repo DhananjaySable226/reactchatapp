@@ -115,7 +115,7 @@ function ChatScreen() {
             <div className="chat-messages">
                 {data && data.length > 0 ? (
                     data.map((msg, index) => (
-                        <div key={index} className={msg.senderId === own ? 'message sender' : 'message receiver'}>
+                        <div key={index} className={msg.senderId === String(own) ? 'message sender' : 'message receiver'}>
                             {msg.message}
                         </div>
                     ))
