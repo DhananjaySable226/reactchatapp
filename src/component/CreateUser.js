@@ -25,7 +25,7 @@ function CreateUser() {
       return;
     }
     try {
-      await axios.post(`http://localhost:4000/user/addUsers`, {
+      await axios.post(`https://chat-app-3xsn.onrender.com/user/addUsers`, {
         name,
         mobile,
         show: false

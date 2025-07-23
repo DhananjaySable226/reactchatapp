@@ -18,7 +18,7 @@ function AddUser() {
 
     const getUsers = async () => {
         try {
-            const response = await axios.get(`http://localhost:4000/user/getUsers/${mobile}/false`);
+            const response = await axios.get(`https://chat-app-3xsn.onrender.com/user/getUsers/${mobile}/false`);
             const responseData = response.data;
             if (responseData.status === 200 && Array.isArray(responseData.result)) {
                 setUsers(responseData.result);

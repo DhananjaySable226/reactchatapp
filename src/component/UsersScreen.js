@@ -29,7 +29,7 @@ function UsersScreen() {
 
   const getUsers = async () => {
     try {
-      const response = await axios.get(`http://localhost:4000/user/getUserChatCount/${mobile}/true`);
+      const response = await axios.get(`https://chat-app-3xsn.onrender.com/user/getUserChatCount/${mobile}/true`);
       setUsersChat(response.data.usersWithFalseStatusCount)
       setUsers(response.data.sortedUsers);
     } catch (err) {
@@ -39,7 +39,7 @@ function UsersScreen() {
 
   const updateUserStatus = async (userId) => {
     try {
-      await axios.put(`http://localhost:4000/chat/update/user-status/${mobile}/${userId}`);
+      await axios.put(`https://chat-app-3xsn.onrender.com/chat/update/user-status/${mobile}/${userId}`);
     } catch (err) {
       throw err;
     }

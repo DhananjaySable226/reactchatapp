@@ -10,7 +10,7 @@ function Edit() {
 
     const updateUserName = async () => {
         try {
-            await axios.put(`http://localhost:4000/user/update-user/${mobile}`, {
+            await axios.put(`https://chat-app-3xsn.onrender.com/user/update-user/${mobile}`, {
                 name
             });
             setName('');

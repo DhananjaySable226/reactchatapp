@@ -36,7 +36,7 @@ function ChatScreen() {
 
     const getUserInfo = async () => {
         try {
-            const response = await axios.get(`http://localhost:4000/chat/getUser/all-info/${own}/${mobile}`);
+            const response = await axios.get(`https://chat-app-3xsn.onrender.com/chat/getUser/all-info/${own}/${mobile}`);
             const userData = response.data.result;
             if (userData) {
                 setUserName(userData.name || 'Unknown User');
@@ -52,7 +52,7 @@ function ChatScreen() {
             return;
         }
         try {
-            await axios.post(`http://localhost:4000/chat/create-user/send-msg/${mobile}`, {
+            await axios.post(`https://chat-app-3xsn.onrender.com/chat/create-user/send-msg/${mobile}`, {
                 senderId: own,
                 receiverId: mobile,
                 message,
@@ -66,7 +66,7 @@ function ChatScreen() {
     }
     const getUserChat = async () => {
         try {
-            const response = await axios.get(`http://localhost:4000/chat/get/users/chat/${own}/${mobile}`);
+            const response = await axios.get(`https://chat-app-3xsn.onrender.com/chat/get/users/chat/${own}/${mobile}`);
             const filter = response.data.result[0]?.messages;
             setData(filter || []);
         } catch (err) {

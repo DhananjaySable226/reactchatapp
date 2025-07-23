@@ -37,7 +37,7 @@ function Login() {
 
     const addUser = async () => {
         try {
-            const response = await axios.post(`http://localhost:4000/user/loginUser`, {
+            const response = await axios.post(`https://chat-app-3xsn.onrender.com/user/loginUser`, {
                 name,
                 mobile,
                 show: false

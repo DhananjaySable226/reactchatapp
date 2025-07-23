@@ -15,7 +15,7 @@ function UserTable() {
 
   const fetchUserData = async () => {
     try {
-      const response = await axios.get(`http://localhost:4000/user/getOneUser/${mobile}`);
+      const response = await axios.get(`https://chat-app-3xsn.onrender.com/user/getOneUser/${mobile}`);
       setUserData(response.data.result);
     } catch (err) {
       throw err
