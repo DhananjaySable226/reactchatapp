@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import User from '../asets/user.png'
 // import Edit from "../asets/edit.png" // Remove edit icon import
 import './ChatScreen.css';
@@ -23,7 +23,7 @@ function ChatScreen() {
         return true;
     };
 
-    const getUserInfo = async () => {
+    const getUserInfo = useCallback(async () => {
         try {
             const response = await axios.get(`https://chat-app-3xsn.onrender.com/chat/getUser/all-info/${own}/${mobile}`);
             const userData = response.data.result;
@@ -32,9 +32,9 @@ function ChatScreen() {
                 setDateTime(userData.dateTime || 'Unknown Time');
             }
         } catch (err) {
-            throw err;
+            console.error(err);
         }
-    }
+    }, [own, mobile]);
 
     const sendMSG = async () => {
         if (!validateMessage()) {
@@ -53,20 +53,21 @@ function ChatScreen() {
             throw err;
         }
     }
-    const getUserChat = async () => {
+    const getUserChat = useCallback(async () => {
         try {
             const response = await axios.get(`https://chat-app-3xsn.onrender.com/chat/get/users/chat/${own}/${mobile}`);
             const filter = response.data.result[0]?.messages;
             setData(filter || []);
         } catch (err) {
-            throw err;
+            console.error(err);
         }
-    }
+    }, [own, mobile]);
     useEffect(() => {
-        getUserChat();
-        getUserInfo();
-    }, [own, mobile])
-
+        useEffect(() => {
+            getUserChat();
+            getUserInfo();
+        }, [getUserChat, getUserInfo]);
+    })
     const handleEditUser = () => {
         navigate(`/Edit/user/${mobile}`);
         setShowMenu(false);

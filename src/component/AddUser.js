@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import User from '../asets/user.png';
@@ -15,7 +15,7 @@ function AddUser() {
         navigate('/CreateUser');
     };
 
-    const getUsers = async () => {
+    const getUsers = useCallback(async () => {
         try {
             const response = await axios.get(`https://chat-app-3xsn.onrender.com/user/getUsers/${mobile}/false`);
             const responseData = response.data;
@@ -27,7 +27,7 @@ function AddUser() {
         } catch (err) {
             throw err;
         }
-    }
+    }, [mobile]);
     const clickUser = (mobile) => {
         navigate(`/ChatScreen/${mobile}`);
     }
