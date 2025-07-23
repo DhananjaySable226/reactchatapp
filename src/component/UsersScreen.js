@@ -11,7 +11,7 @@ function UsersScreen() {
   const mobile = user ? user.mobile : null;
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
-  const [usersChat, setUsersChat] = useState();
+  // const [usersChat, setUsersChat] = useState();
 
   // const UserTable = () => {
   //   navigate('/UserTable');
@@ -29,7 +29,7 @@ function UsersScreen() {
   const getUsers = useCallback(async () => {
     try {
       const response = await axios.get(`https://chat-app-3xsn.onrender.com/user/getUserChatCount/${mobile}/true`);
-      setUsersChat(response.data.usersWithFalseStatusCount)
+      // setUsersChat(response.data.usersWithFalseStatusCount)
       setUsers(response.data.sortedUsers);
     } catch (err) {
       throw err;
