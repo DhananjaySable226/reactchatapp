@@ -15,19 +15,11 @@ function ChatScreen() {
     const [message, setMessage] = useState('');
     const [userName, setUserName] = useState('');
     const [dateTime, setDateTime] = useState('');
-    const [error, setError] = useState('');
     const [showMenu, setShowMenu] = useState(false);
 
     const validateMessage = () => {
-        if (message.trim() === '') {
-            setError('Message cannot be empty.');
-            return false;
-        }
-        if (message.length > 200) {
-            setError('Message cannot exceed 200 characters.');
-            return false;
-        }
-        setError('');
+        if (message.trim() === '') return false;
+        if (message.length > 200) return false;
         return true;
     };
 
@@ -75,7 +67,6 @@ function ChatScreen() {
         getUserInfo();
     }, [own, mobile])
 
-    // Option handlers
     const handleEditUser = () => {
         navigate(`/Edit/user/${mobile}`);
         setShowMenu(false);

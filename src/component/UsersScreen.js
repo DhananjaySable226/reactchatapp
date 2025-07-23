@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import './UsersScreen.css';
 import axios from "axios";
-import Find from '../asets/find.png';
 import User from '../asets/user.png';
 import AddUsers from '../asets/addUser.png'
 
@@ -14,18 +13,18 @@ function UsersScreen() {
   const [users, setUsers] = useState([]);
   const [usersChat, setUsersChat] = useState();
 
-  const UserTable = () => {
-    navigate('/UserTable');
-  };
+  // const UserTable = () => {
+  //   navigate('/UserTable');
+  // };
   const ChatScreen = (mobile) => {
     navigate(`/ChatScreen/${mobile}`);
   };
   const AddUser = () => {
     navigate('/AddUser');
   };
-  const SearchScreen = () => {
-    navigate('/Search/Users');
-  };
+  // const SearchScreen = () => {
+  //   navigate('/Search/Users');
+  // };
 
   const getUsers = async () => {
     try {
