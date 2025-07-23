@@ -63,11 +63,9 @@ function ChatScreen() {
         }
     }, [own, mobile]);
     useEffect(() => {
-        useEffect(() => {
-            getUserChat();
-            getUserInfo();
-        }, [getUserChat, getUserInfo]);
-    })
+        getUserChat();
+        getUserInfo();
+    }, [getUserChat, getUserInfo]);
     const handleEditUser = () => {
         navigate(`/Edit/user/${mobile}`);
         setShowMenu(false);
