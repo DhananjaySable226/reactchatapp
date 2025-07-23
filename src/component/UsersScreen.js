@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useNavigate } from 'react-router-dom';
 import './UsersScreen.css';
 import axios from "axios";
@@ -26,7 +26,7 @@ function UsersScreen() {
   //   navigate('/Search/Users');
   // };
 
-  const getUsers = async () => {
+  const getUsers = useCallback(async () => {
     try {
       const response = await axios.get(`https://chat-app-3xsn.onrender.com/user/getUserChatCount/${mobile}/true`);
       setUsersChat(response.data.usersWithFalseStatusCount)
@@ -34,7 +34,7 @@ function UsersScreen() {
     } catch (err) {
       throw err;
     }
-  };
+  }, [ mobile])
 
   const updateUserStatus = async (userId) => {
     try {
@@ -46,7 +46,7 @@ function UsersScreen() {
 
   useEffect(() => {
     getUsers();
-  }, [mobile]);
+  }, [getUsers]);
 
   const handleChatClick = (mobile) => {
     ChatScreen(mobile);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import './UserTable.css';
 import User from '../asets/user.png';
@@ -13,7 +13,7 @@ function UserTable() {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const fetchUserData = async () => {
+  const fetchUserData = useCallback( async () => {
     try {
       const response = await axios.get(`https://chat-app-3xsn.onrender.com/user/getOneUser/${mobile}`);
       setUserData(response.data.result);
@@ -22,11 +22,11 @@ function UserTable() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [ mobile])
 
   useEffect(() => {
     fetchUserData();
-  }, [mobile]);
+  }, [fetchUserData]);
   const UserScreen = () => {
     navigate('/UserScreen');
   };
