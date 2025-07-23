@@ -18,9 +18,6 @@ function ChatScreen() {
     const [error, setError] = useState('');
     const [showMenu, setShowMenu] = useState(false);
 
-    const clickUser = () => {
-        navigate(`/Edit/user/${mobile}`);
-    }
     const validateMessage = () => {
         if (message.trim() === '') {
             setError('Message cannot be empty.');

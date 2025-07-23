@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import User from '../asets/user.png';
-import NewUser from '../asets/addition.png';
 import './AddUser.css';
 
 function AddUser() {
