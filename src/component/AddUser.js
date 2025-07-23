@@ -32,10 +32,9 @@ function AddUser() {
         navigate(`/ChatScreen/${mobile}`);
     }
     useEffect(() => {
-        if (mobile) {
-            getUsers();
-        }
-    }, [mobile]);
+        getUsers();
+
+    }, [getUsers]);
 
     return (
         <div className="add-user">
